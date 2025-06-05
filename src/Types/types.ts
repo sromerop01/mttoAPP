@@ -13,7 +13,7 @@ export interface FormFieldProps {
   type?: string
   placeholder?: string
   required?: boolean
-  value?: string | number // Para componentes controlados
+  value?: string | number | null | File // Para componentes controlados
   onChange?: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => void
   inputClassName?: string
   labelClassName?: string
