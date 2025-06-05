@@ -32,7 +32,7 @@ const ColumnChart= () => {
     colors: ["#1A56DB", "#FDBA8C"],
     chart: {
       type: "bar",
-      height: "320px", // o 320 numérico
+      height: "320px",
       fontFamily: "Inter, sans-serif",
       toolbar: { show: false },
     },
@@ -50,7 +50,7 @@ const ColumnChart= () => {
       style: { fontFamily: "Inter, sans-serif" },
     },
     states: {
-      hover: { filter: { type: "darken", value: 1 } },
+      hover: { filter: { type: "darken"} },
     },
     stroke: { show: true, width: 0, colors: ["transparent"] },
     grid: {

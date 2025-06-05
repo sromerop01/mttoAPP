@@ -15,17 +15,6 @@ const MOCK_DATA = {
 };
 
 const PieChart = () => {
-  // useEffect(() => {
-  //   // Asegúrate de que Flowbite esté inicializado en tu app (App.tsx o Layout)
-  //   // initFlowbite();
-  //   // Para el DateRangePicker, si no se inicializa con initFlowbite o necesitas una instancia:
-  //   // const dateRangePickerEl = document.getElementById('dateRangeDropdown');
-  //   // if (dateRangePickerEl) {
-  //   //   const options: DateRangePickerOptions = { /* tus opciones si las tienes */ };
-  //   //   const instanceOptions = { id: 'dateRangeDropdown', override: true };
-  //   //   const datepicker: DateRangePickerInterface = new DateRangePicker(dateRangePickerEl, options, instanceOptions);
-  //   // }
-  // }, []);
 
   const [currentDateRangeDisplay, setCurrentDateRangeDisplay] = useState("Last 7 days"); // Para el botón de "Last 7 days"
   const [customStartDate, setCustomStartDate] = useState('');
@@ -73,7 +62,7 @@ const PieChart = () => {
                 const percentage = (opts.w.globals.series[seriesIndex] / opts.w.globals.seriesTotals.reduce((a: number, b: number) => a + b, 0) * 100).toFixed(1);
                 return percentage + "%";
             }
-            return val.toFixed(1) + "%"; // Fallback si seriesTotals no está disponible
+            return val + "%"; // Fallback si seriesTotals no está disponible
         }
       },
       legend: {

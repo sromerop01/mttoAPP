@@ -3,19 +3,29 @@ import Chart from 'react-apexcharts'; // Wrapper de React para ApexCharts
 import type { ApexOptions } from 'apexcharts'; // Tipos para las opciones del gráfico
 // import { initFlowbite } from 'flowbite'; // Asegúrate que Flowbite se inicializa en tu app
 
+interface ChartDataPeriod {
+  series: Array<{ name: string; data: number[] }>; // CAMBIO: data es ahora number[]
+  categories: string[];
+}
+
+interface MockBarDataMap {
+  "Last 6 months": ChartDataPeriod;
+  "Last 7 days": ChartDataPeriod;
+}
+
 // Datos de ejemplo para diferentes periodos (simulados para un bar chart)
-const MOCK_BAR_DATA = {
+const MOCK_BAR_DATA: MockBarDataMap = {
   "Last 6 months": {
     series: [
-      { name: "Costos Diagnosticos", data: [1420, 1620, 1820, 1420, 1650, 2120].map(String) }, // ApexCharts espera números o strings que puedan ser parseados
-      { name: "Costos Mantenimientos", data: [788, 810, 866, 788, 1100, 1200].map(String) }
+      { name: "Costos Diagnosticos", data: [1420, 1620, 1820, 1420, 1650, 2120] }, // ApexCharts espera números o strings que puedan ser parseados
+      { name: "Costos Mantenimientos", data: [788, 810, 866, 788, 1100, 1200] }
     ],
     categories: ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
   },
   "Last 7 days": { // Ejemplo de otros datos
     series: [
-      { name: "Costos Diagnosticos", data: [100, 120, 110, 130, 90, 140, 105].map(String) },
-      { name: "Costos Mantenimientos", data: [50, 60, 55, 65, 40, 70, 45].map(String) }
+      { name: "Costos Diagnosticos", data: [100, 120, 110, 130, 90, 140, 105] },
+      { name: "Costos Mantenimientos", data: [50, 60, 55, 65, 40, 70, 45] }
     ],
     categories: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
   },
@@ -24,9 +34,6 @@ const MOCK_BAR_DATA = {
 
 
 const BarChart = () => {
-  // useEffect(() => {
-  //   // initFlowbite(); // Si no se inicializa globalmente
-  // }, []);
 
   const [selectedPeriod, setSelectedPeriod] = useState<string>("Last 6 months");
 
@@ -37,7 +44,7 @@ const BarChart = () => {
   );
 
   const [chartOptions, setChartOptions] = useState<ApexOptions>({
-    series: initialChartData.series.map(s => ({ ...s, color: s.name === "Costos Diagnosticos" ? "#31C48D" : "#F05252" })), // series se pasa como prop separado al componente Chart
+    // series: initialChartData.series.map(s => ({ ...s, color: s.name === "Costos Diagnosticos" ? "#31C48D" : "#F05252" })), // series se pasa como prop separado al componente Chart
     chart: {
       sparkline: { enabled: false },
       type: "bar",
@@ -97,7 +104,7 @@ const BarChart = () => {
       strokeDashArray: 4,
       padding: { left: 2, right: 2, top: -20 },
     },
-    // colors: ["#31C48D", "#F05252"], // Los colores se pueden definir en cada serie
+    colors: ["#31C48D", "#F05252"], // Los colores se pueden definir en cada serie
   });
 
   const handlePeriodChange = (periodLabel: string, periodKey: keyof typeof MOCK_BAR_DATA) => {
