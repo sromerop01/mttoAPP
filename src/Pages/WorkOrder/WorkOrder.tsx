@@ -5,7 +5,8 @@ import SolicitudSection from "../../Components/WorkOrderSections/SolicitudesSect
 import EquipoSection from '../../Components/WorkOrderSections/EquipoSection'
 import DiagnosticoSection from '../../Components/WorkOrderSections/DiagnosticoSection'
 import PlaneacionSection from '../../Components/WorkOrderSections/PlaneacionSection'
-
+import WorkOrderPDFDoc from "../../Reports/WorkOrderPDFDoc"
+import { PDFViewer } from "@react-pdf/renderer"
 
 const WorkOrder = () => {
   const {
@@ -104,6 +105,14 @@ const WorkOrder = () => {
             </button>
           </div>
         </form>
+
+        {/* Opcional: Para visualizar el PDF directamente en la página (ocupa mucho espacio) */}
+        <div style={{ marginTop: '20px', height: '70vh', border: '1px solid #ccc' }}>
+          <PDFViewer width="100%" height="100%">
+            <WorkOrderPDFDoc data={formData} />
+          </PDFViewer>
+        </div>
+
       </div>
     </>
   )
