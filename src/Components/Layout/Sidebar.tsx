@@ -2,6 +2,8 @@ import { NavLink } from 'react-router-dom'
 
 const Sidebar= () => {
 
+  
+
   // Estilo para el enlace activo usando NavLink
   const activeClassName = "flex items-center p-2 text-gray-900 rounded-lg dark:text-white bg-gray-200 dark:bg-gray-700 group";
   const inactiveClassName = "flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group";
@@ -9,11 +11,9 @@ const Sidebar= () => {
   return (
     <>
       <aside
-        id="default-sidebar"
-        className='border-r border-gray-500 fixed top-16 left-0 z-40 w-64 h-[calc(100vh-4rem)] transition-transform -translate-x-full sm:translate-x-0  inert'
-        // `top-16` si navbar es `h-16` (4rem).
-        // `h-[calc(100vh-${navbarHeightValue})]` para altura restante.
-        aria-label="Sidebar"
+        //id="default-sidebar"
+        className='border-r border-gray-500 fixed top-16 left-0 z-40 w-64 h-[calc(100vh-4rem)] transition-transform -translate-x-full sm:translate-x-0'
+        //aria-label="Sidebar"
       >
         <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
           <ul className="space-y-2 font-medium">

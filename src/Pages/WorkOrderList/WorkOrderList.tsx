@@ -1,10 +1,7 @@
-import { useEffect } from "react"
-import { initFlowbite } from "flowbite"
+
 
 const WorkOrderList = () => {
-  useEffect(() => {
-      initFlowbite() 
-    }, [])
+
 
   return (
     <>

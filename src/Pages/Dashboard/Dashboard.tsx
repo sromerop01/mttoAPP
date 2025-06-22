@@ -1,13 +1,10 @@
-import { useEffect } from "react";
-import { initFlowbite } from "flowbite";
+
 import ColumnChart from "../../Components/Charts/ColumnChart";
 import PieChart from "../../Components/Charts/PieChart";
 import BarChart from "../../Components/Charts/BarChart";
 
 const Dashboard = () => {
-  useEffect(() => {
-      initFlowbite(); 
-    }, []);
+
 
   return (
     <div>

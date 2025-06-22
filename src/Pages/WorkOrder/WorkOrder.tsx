@@ -1,5 +1,4 @@
-import { useEffect } from "react"
-import { initFlowbite } from "flowbite"
+
 import { useWorkOrderForm } from "../../Hooks/useWorkOrderForm"
 import SolicitudSection from "../../Components/WorkOrderSections/SolicitudesSection"
 import EquipoSection from '../../Components/WorkOrderSections/EquipoSection'
@@ -19,9 +18,6 @@ const WorkOrder = () => {
     isFormValid
   } = useWorkOrderForm()
 
-  useEffect(() => {
-    initFlowbite()
-  }, [])
 
   // ============= HANDLERS ESPECÍFICOS =============
   const handleSolicitudChange = (field: string, value: string) => {

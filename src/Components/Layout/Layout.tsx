@@ -1,13 +1,8 @@
-import { useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
-import { initFlowbite } from 'flowbite'
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
 
 const Layout = () => {
-  useEffect(() => {
-    initFlowbite()
-  }, [])
 
   return (
     <div className="flex flex-col min-h-screen"> {/* Usa min-h-screen para asegurar que al menos ocupe toda la pantalla */}
