@@ -35,53 +35,53 @@ const DiagnosticoSection = ({ formData, onChange }: DiagnosticoSectionProps) => 
             {/* Inputs */}
             <div className="grid grid-cols-4">
                 <div className="p-2 border-r border-gray-300 dark:border-gray-600">
-                <select 
-                    className={styles.input} 
-                    required
-                    value={formData.apto_mantenimiento}
-                    onChange={(e) => onChange('apto_mantenimiento', e.target.value, false)}
-                >
-                    <option value="">- SI/NO -</option>
-                    <option value="yes">Sí</option>
-                    <option value="no">No</option>
-                </select>
+                    <select 
+                        className={styles.input} 
+                        required
+                        value={formData.apto_mantenimiento}
+                        onChange={(e) => onChange('apto_mantenimiento', e.target.value, false)}
+                    >
+                        <option value="">- SI/NO -</option>
+                        <option value="yes">Sí</option>
+                        <option value="no">No</option>
+                    </select>
                 </div>
                 
                 <div className="p-2 border-r border-gray-300 dark:border-gray-600">
-                <input 
-                    type="number" 
-                    className={styles.input} 
-                    step="1" 
-                    min="1" 
-                    max="4" 
-                    required 
-                    value={formatNumericInput(formData.nro_personas_diagnostico)}
-                    onChange={(e) => onChange('nro_personas_diagnostico', e.target.value, true)}
-                />
+                    <input 
+                        type="number" 
+                        className={styles.input} 
+                        step="1" 
+                        min="1" 
+                        max="4" 
+                        required 
+                        value={formatNumericInput(formData.nro_personas_diagnostico)}
+                        onChange={(e) => onChange('nro_personas_diagnostico', e.target.value, true)}
+                    />
                 </div>
                 
                 <div className="p-2 border-r border-gray-300 dark:border-gray-600">
-                <input 
-                    type="number" 
-                    className={styles.input} 
-                    step="0.01" 
-                    min="0" 
-                    required
-                    value={formatNumericInput(formData.tiempo_diagnostico_h)}
-                    onChange={(e) => onChange('tiempo_diagnostico_h', e.target.value, true)}
-                />
+                    <input 
+                        type="number" 
+                        className={styles.input} 
+                        step="0.01" 
+                        min="0" 
+                        required
+                        value={formatNumericInput(formData.tiempo_diagnostico_h)}
+                        onChange={(e) => onChange('tiempo_diagnostico_h', e.target.value, true)}
+                    />
                 </div>
                 
                 <div className="p-2">
-                <input 
-                    type="number" 
-                    className={styles.input} 
-                    min="0" 
-                    step="0.1" 
-                    required 
-                    value={formatNumericInput(formData.costo_diagnostico_valor)}
-                    onChange={(e) => onChange('costo_diagnostico_valor', e.target.value, true)}
-                />
+                    <input 
+                        type="number" 
+                        className={styles.input} 
+                        min="0" 
+                        step="0.1" 
+                        disabled 
+                        value={formatNumericInput(formData.costo_diagnostico_valor)}
+                        //onChange={(e) => onChange('costo_diagnostico_valor', e.target.value, true)}
+                    />
                 </div>
             </div>
         </FormSection>

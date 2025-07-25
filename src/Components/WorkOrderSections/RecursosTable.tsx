@@ -27,14 +27,12 @@ const RecursosTable: React.FC<RecursosTableProps> = ({
       </div>
       
       {recursosData.map((item, index) => (
-        <div 
-          key={item.id} 
+        <div key={item.id} 
           className={`grid grid-cols-[minmax(150px,1.5fr)_minmax(150px,2fr)_minmax(80px,1fr)_minmax(150px,2fr)] items-start ${index < recursosItems.length - 1 ? 'border-b' : ''} border-gray-300 dark:border-gray-600`}
         >
           <div className={`${styles.cell.base} ${styles.cell.rowLabel} min-h-[58px]`}>
             {item.label}
           </div>
-          
           <div className={`${styles.cell.base} ${styles.cell.data} p-1`}>
             <textarea 
               id={`${item.id}_caracteristicas`}
@@ -55,7 +53,7 @@ const RecursosTable: React.FC<RecursosTableProps> = ({
               className={`${styles.input} h-full`} 
               placeholder="0" 
               min="0"
-              value={formatNumericInput(item.cantidad as number | null)} // item.cantidad ahora es number | null
+              value={formatNumericInput(item.cantidad as number | null)}
               onChange={(e) => onRecursoChange(index, 'cantidad', e.target.value)}
             />
           </div>
@@ -77,4 +75,3 @@ const RecursosTable: React.FC<RecursosTableProps> = ({
   );
 };
 export default React.memo(RecursosTable)
-// export default React.memo(RecursosTable); // Opcional: memorizar

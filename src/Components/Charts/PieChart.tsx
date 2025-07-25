@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
-import Chart from 'react-apexcharts'; // Wrapper de React para ApexCharts
-import type { ApexOptions } from 'apexcharts'; // Tipos para las opciones
-// import { initFlowbite, DateRangePicker } from 'flowbite'; // Flowbite y su DateRangePicker
-// import type { DateRangePickerOptions, DateRangePickerInterface } from 'flowbite-datepicker';
+import Chart from 'react-apexcharts';
+import type { ApexOptions } from 'apexcharts';
 
 
 // Datos de ejemplo para diferentes periodos (simulados para un pie chart)
@@ -100,16 +98,11 @@ const PieChart = () => {
         labels: newData.labels,
       }));
     }
-    // Aquí podrías cerrar el dropdown de Flowbite si es necesario
-    // document.getElementById('lastDaysdropdown').classList.add('hidden'); // Ejemplo simple
   };
   
   // Manejador para el DateRangePicker (simulado, necesitaría integración con eventos del datepicker)
   const handleCustomDateChange = () => {
     if (customStartDate && customEndDate) {
-      // Aquí normalmente harías una llamada a la API con startDate y endDate
-      // y luego actualizarías chartSeries y chartOptions.labels con los nuevos datos.
-      // Por ahora, solo actualizamos el display:
       const formattedStartDate = new Date(customStartDate).toLocaleDateString('es-ES', { day: 'numeric', month: 'short' });
       const formattedEndDate = new Date(customEndDate).toLocaleDateString('es-ES', { day: 'numeric', month: 'short' });
       setCurrentDateRangeDisplay(`${formattedStartDate} - ${formattedEndDate}`);
@@ -119,10 +112,6 @@ const PieChart = () => {
       const total = randomSeries.reduce((a,b) => a+b, 0);
       setChartSeries(randomSeries.map(s => parseFloat((s/total*100).toFixed(1)) )); // Normalizar a porcentajes
       setChartOptions(prev => ({...prev, labels: ["Custom A", "Custom B", "Custom C"]}));
-
-      // Cerrar el dropdown del datepicker (si Flowbite no lo hace automáticamente)
-      // const dateRangeDropdown = document.getElementById('dateRangeDropdown');
-      // if (dateRangeDropdown) { /* Lógica para ocultar con Flowbite API o clases */ }
     }
   };
   

@@ -56,7 +56,7 @@ const EquipoSection = ({ formData, onChange, onFileChange }: EquipoSectionProps)
             <FormField
                 key={field.id}
                 {...field}
-                wrapperClassName={`grid grid-cols-[max-content_1fr] items-center gap-x-3 gap-y-1 ${field.id === 'serie_equipo' ? 'mb-0' : 'mb-3'}`}
+                wrapperClassName={`grid grid-cols-[max-content_1fr] items-center gap-x-3 gap-y-1 ${field.id === 'familia_tipo' ? 'mb-0' : 'mb-3'}`}
                 labelClassName={field.labelClassNameOverwrite || styles.label}
                 value={formData[field.id as keyof typeof formData]}
                 onChange={(e) => {onChange(field.id, e.target.value)}}

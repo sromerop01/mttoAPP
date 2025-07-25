@@ -12,6 +12,10 @@ export const formatNumericInput = (value: number | null): string => {
   return value === null ? '' : String(value)
 }
 
+export const formatCostValue = (value: number | null): string => {
+  return value === null ? '' : value.toFixed(2)
+}    
+
 // ============= CREACIÓN DE DATOS INICIALES =============
 export const createInitialFormData = (): FormData => ({
   informacionSolicitud: {

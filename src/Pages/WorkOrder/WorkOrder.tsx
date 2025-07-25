@@ -30,6 +30,22 @@ const WorkOrder = () => {
 
   const handleDiagnosticoChange = (field: string, value: string, isNumber = false) => {
     handleSimpleChange('resultadosDiagnostico', field, value, isNumber)
+
+    if (field === 'nro_personas_diagnostico' || field === 'tiempo_diagnostico_h') {
+      // Obtenemos los valores actualizados para el cálculo.
+      const nroPersonasStr = field === 'nro_personas_diagnostico' ? value : String(formData.resultadosDiagnostico.nro_personas_diagnostico);
+      const tiempoDiagnosticoStr = field === 'tiempo_diagnostico_h' ? value : String(formData.resultadosDiagnostico.tiempo_diagnostico_h);
+      const nroPersonas = parseFloat(nroPersonasStr);
+      const tiempoDiagnostico = parseFloat(tiempoDiagnosticoStr);
+
+      let costoDiagnostico = 0;
+      if (!isNaN(nroPersonas) && !isNaN(tiempoDiagnostico) && nroPersonas >= 0 && tiempoDiagnostico >= 0) {
+        costoDiagnostico = (nroPersonas * tiempoDiagnostico * 17700); // 17,700 es el valor por hora
+      }
+
+      // Actualiza el campo costo_diagnostico_valor en el formData
+      handleSimpleChange('resultadosDiagnostico', 'costo_diagnostico_valor', costoDiagnostico, true);
+    }
   }
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -38,12 +54,10 @@ const WorkOrder = () => {
       (data) => {
         // Lógica de éxito
         console.log('✅ Orden de trabajo creada exitosamente:', data)
-        // Aquí podrías hacer una llamada a la API, mostrar un toast, etc.
       },
       (errors) => {
         // Lógica de error
         console.error('❌ Errores en el formulario:', errors)
-        // Aquí podrías mostrar los errores al usuario
         alert('Por favor, complete todos los campos requeridos:\n' + errors.join('\n'))
       }
     )
@@ -77,7 +91,7 @@ const WorkOrder = () => {
             onChange={handleDiagnosticoChange}
           />
 
-          {/* Sección de Planeación - Solo si el equipo está apto */}
+          {/* Sección de Planeación */}
           {formData.resultadosDiagnostico.apto_mantenimiento === 'yes' && (
             <PlaneacionSection
               formData={formData.planeacionMantenimiento}
@@ -102,7 +116,7 @@ const WorkOrder = () => {
           </div>
         </form>
 
-        {/* Opcional: Para visualizar el PDF directamente en la página (ocupa mucho espacio) */}
+        {/* Opcional: Para visualizar el PDF directamente en la página */}
         <div style={{ marginTop: '20px', height: '70vh', border: '1px solid #ccc' }}>
           <PDFViewer width="100%" height="100%">
             <WorkOrderPDFDoc data={formData} />

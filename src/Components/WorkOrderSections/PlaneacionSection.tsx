@@ -19,8 +19,7 @@ const PlaneacionSection: React.FC<PlaneacionSectionProps> = ({
   return (
     <FormSection 
       title="Planeación del mantenimiento" 
-      titleClassName="my-6 text-xl font-semibold dark:text-white border-b pb-2 pt-4 text-center" 
-      // Quita el padding y borde del contentContainer de FormSection si las tablas internas lo manejan
+      titleClassName="my-6 text-xl font-semibold dark:text-white border-b pb-2 pt-4 text-center"
       contentContainerClassName="overflow-hidden" 
     >
       <RecursosTable

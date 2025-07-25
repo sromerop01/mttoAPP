@@ -11,11 +11,12 @@ export const solicitudField: FieldConfig[] = [
 ]
 
 export const equipoInfoField: FieldConfig[] = [
-  { id: "nombre_equipo", label: "Equipo:", type: "text", placeholder: "Ej: Microscopio Electrónico", required: true },
   { id: "placa_unal", label: "Identificación del equipo (Placa UNAL):", type: "text", placeholder: "Ej: 123456", labelClassNameOverwrite: "block text-sm font-medium text-gray-900 dark:text-white whitespace-nowrap", required: true },
+  { id: "nombre_equipo", label: "Equipo:", type: "text", placeholder: "Ej: Microscopio Electrónico", required: true },
   { id: "marca_equipo", label: "Marca:", type: "text", placeholder: "Ej: Olympus" },
   { id: "modelo_equipo", label: "Modelo:", type: "text", placeholder: "Ej: BX53" },
   { id: "serie_equipo", label: "Número de serie:", type: "text", placeholder: "Ej: SN987654", labelClassNameOverwrite: "block text-sm font-medium text-gray-900 dark:text-white whitespace-nowrap" },
+  { id: "familia_tipo", label: "Familia/Tipo:", type: "text", placeholder: "Ej: Instrumentos Ópticos ", labelClassNameOverwrite: "block text-sm font-medium text-gray-900 dark:text-white whitespace-nowrap", required: true},
 ]
 
 export const recursosItems = [
